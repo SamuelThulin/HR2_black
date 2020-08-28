@@ -435,9 +435,16 @@ function draw() {
 }
 
 
-function run() {
+function run (){
+  if (Tone.context.state !== "running"){
+Tone.start();
+    console.log("not running");
+  }
+}
+
+/*function run() {
   //Tone.context.resume();
   Tone.start();
 }
-//document.getElementById("playButton").addEventListener("click", run);
+//document.getElementById("playButton").addEventListener("click", run);*/
 
