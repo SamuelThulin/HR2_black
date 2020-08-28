@@ -188,7 +188,7 @@ function stopEvent(){
 
 //function that executes whenever the dropdown list is changed. Feeds the bgDict values to the synth
 function valSelectEvent() {
-
+Tone.start();
   selBg = chooseVal.value();
   clearInterval(loop1);
   clearInterval(loop2);
