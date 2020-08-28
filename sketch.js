@@ -43,7 +43,7 @@ function setup() {
   textSize(fontSize);
   points = [];
 
- 
+
   
   //need to think strategically about where, what and when to send toDestination(); and about signal flow. For example and lfo is written like this lfo.connect(synth), whereas an effect is like this synth.connect(effect); whatever is in the brackets needs to go toDestination(); you can make it  go toDestination(); elsewhere than in the setup function though
   amSynth = new Tone.AMSynth();
@@ -135,7 +135,7 @@ function setup() {
   fft = new Tone.FFT(1024);
   Tone.Destination.connect(fft);
 
-                           
+                          
   createCanvas(800, 600);
   volumeSlider = createSlider(-60, 0, 0, 0);
   volumeSlider.style('align-self', 'flex-start');
@@ -237,7 +237,7 @@ function valSelectEvent() {
     fbDelay1.wet.value = random(0, 1.0);
     membraneSynth.triggerAttackRelease(notesArray[int(bgDict.get(selBg)[6])], bgDict.get(selBg)[6] * random(0.05, 0.4));
   }
-   ////////////////Low functions:
+  ////////////////Low functions:
     function amSynthLoopLow() {
     amSynth.detune.value = bgDict.get(selBg)[1];
     amVerb.wet.value = random(0, 1.0);
@@ -275,7 +275,7 @@ function valSelectEvent() {
     fbDelay1.wet.value = random(0, 1.0);
     membraneSynth.triggerAttackRelease(notesArray[int(bgDict.get(selBg)[6])], bgDict.get(selBg)[6] * random(0.05, 0.4));
   }
-     ////////////////High functions:
+    ////////////////High functions:
     function amSynthLoopHigh() {
     amSynth.detune.value = bgDict.get(selBg)[1];
     amVerb.wet.value = random(0.2, 1.0);
@@ -296,9 +296,9 @@ function valSelectEvent() {
     function amSynth2LoopHigh() {
     amSynth2.detune.value = bgDict.get(selBg)[2];
     amSynth2.envelope.attack = bgDict.get(selBg)[2] * random(0.01, 0.1);
-       amSynth2.envelope.decay = 2;
+      amSynth2.envelope.decay = 2;
     amSynth2.envelope.sustain = 0.5;
-       amSynth2.envelope.decayCurve = "linear";
+      amSynth2.envelope.decayCurve = "linear";
     amSynth2.triggerAttackRelease(notesArray[int(bgDict.get(selBg)[2])], bgDict.get(selBg)[2] * random(0.09, 0.6));
   }
   function fmSynth2LoopHigh() {
@@ -306,9 +306,9 @@ function valSelectEvent() {
     fmSynth2.detune.value = bgDict.get(selBg)[5];
     fmSynth2.harmonicity.rampTo(random([1, 2, 3]), 0.3);
     fmSynth2.envelope.attack = bgDict.get(selBg)[5] * random(0.01, 0.1);
-     fmSynth2.envelope.decay = 2;
+    fmSynth2.envelope.decay = 2;
     fmSynth2.envelope.sustain = 0.5;
-     fmSynth2.envelope.decayCurve = "linear";
+    fmSynth2.envelope.decayCurve = "linear";
     fmSynth2.triggerAttackRelease(notesArray[int(bgDict.get(selBg)[5])], bgDict.get(selBg)[5] * random(0.09, 0.6));
   }
     function noiseSynthLoopHigh() {
@@ -324,12 +324,12 @@ function valSelectEvent() {
     membraneSynth.triggerAttackRelease(notesArray[int(bgDict.get(selBg)[6])], bgDict.get(selBg)[6] * random(0.05, 0.4));
   }
   
- ///could re-write this to pull from each of the above functions for every reading in the soundscape, rather than all readings in the soundscape functioning in terms of whether [0] is low, target, or high. Have each one depend on whether IT is low, target, or high. Would just involve breaking the below into more if-then statements.3 for every value 
+///could re-write this to pull from each of the above functions for every reading in the soundscape, rather than all readings in the soundscape functioning in terms of whether [0] is low, target, or high. Have each one depend on whether IT is low, target, or high. Would just involve breaking the below into more if-then statements.3 for every value 
   if(bgDict.get(selBg)[1]<4.0){
   loop1 = setInterval(amSynthLoopLow, bgDict.get(selBg)[1] / 2 * 1000);
   console.log("low");
   }
-   if(bgDict.get(selBg)[4]<4.0){
+  if(bgDict.get(selBg)[4]<4.0){
   loop2 = setInterval(fmSynthLoopLow, bgDict.get(selBg)[4] / 2 * 1000);
   console.log("low");
   } 
@@ -431,3 +431,10 @@ function draw() {
 
   }
 }
+
+
+function run() {
+  Tone.context.resume();
+}
+document.getElementById("playButton").addEventListener("click", run);
+
