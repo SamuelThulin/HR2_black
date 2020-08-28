@@ -139,6 +139,7 @@ function setup() {
   createCanvas(800, 600);
   volumeSlider = createSlider(-60, 0, 0, 0);
   volumeSlider.style('align-self', 'flex-start');
+  volumeSlider.style('flex-grow', '0');
   volumeSlider.input(function() {
   Tone.Destination.volume.value = volumeSlider.value();
   });
@@ -189,7 +190,7 @@ function stopEvent(){
 //function that executes whenever the dropdown list is changed. Feeds the bgDict values to the synth
 function valSelectEvent() {
 //Tone.start();
-  Tone.context.resume();
+  //Tone.context.resume();
   selBg = chooseVal.value();
   clearInterval(loop1);
   clearInterval(loop2);
@@ -435,7 +436,8 @@ function draw() {
 
 
 function run() {
-  Tone.context.resume();
+  //Tone.context.resume();
+  Tone.start();
 }
-document.getElementById("playButton").addEventListener("click", run);
+//document.getElementById("playButton").addEventListener("click", run);
 
