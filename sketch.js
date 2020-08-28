@@ -131,7 +131,7 @@ function setup() {
   
   //get the dictionary key for the value that is selected from the dropdown list - this can then retrieve the corresponding value array to drive the synths
   chooseVal.changed(valSelectEvent);
-  //chooseVal.mousePressed(valSelectEvent);
+  chooseVal.mousePressed(run);
   fft = new Tone.FFT(1024);
   Tone.Destination.connect(fft);
 
