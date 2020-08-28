@@ -149,7 +149,7 @@ function setup() {
   //window.confirm("sometext");
   //selBg = int(random(startBgVal, dataBG.getRowCount() - startBgVal*2));
   //chooseVal.selected(selBg);
-  aboutLink = createA("https://samuelthulin.com/", "about", "_blank");
+  aboutLink = createA("https://samuelthulin.com/projects/hemo-resonance2/", "about", "_blank");
   aboutLink.style('font-family', 'Arial').style('font-size', '16px');
   startButton = createButton("start");
   startButton.mousePressed(valSelectEvent);
